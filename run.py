@@ -48,6 +48,7 @@ def form_style():
 ####################################################
 
 ####################################################
+
 # This block is used to define the API's that will be needed to calculate the predictions, and recieve data
 
 # A route to return all of the data used for training
