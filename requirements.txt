@@ -67,14 +67,13 @@ python-dotenv==0.14.0
 Python-EasyConfig==0.1.7
 python-resources==0.3
 pytz==2020.1
-# pywin32==300
 PyYAML==5.4.1
 pyzmq==22.0.3
 requests==2.21.0
 Resource==0.2.1
 rsa==4.7.2
 scikit-learn==0.24.1
-scipy==1.6.2
+scipy==1.5.4
 screen==1.0.1
 seaborn==0.11.1
 simplegeneric==0.8.1
