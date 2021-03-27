@@ -7,9 +7,11 @@ beautifulsoup4==4.9.3
 bleach==3.3.0
 cachetools==4.2.1
 certifi==2020.6.20
+cffi==1.14.5
 chardet==3.0.4
 click==7.1.2
 colorama==0.4.4
+cryptography==3.4.7
 cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.7.1
@@ -57,9 +59,11 @@ pout==0.8.16
 prompt-toolkit==1.0.18
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
+pycparser==2.20
 PyGithub==1.53
 Pygments==2.8.1
 PyJWT==1.7.1
+pyOpenSSL==20.0.1
 pyparsing==2.4.7
 pyrsistent==0.17.3
 python-dateutil==2.8.1
