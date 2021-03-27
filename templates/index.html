@@ -1,0 +1,54 @@
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome to 'OUR PROJECT TITLE'</title>
+        <link rel="stylesheet" href="/index.css">
+    </head>
+    
+    
+    <!-- In the body we will include the header, content and footer-->
+    
+   <body>
+      
+       <!-- We start with the header -->
+       <div id= 'header'>
+           <div id='logo'>
+               <img id ='logopic' src= "logo-1.png">
+           </div>
+           <div id='menubar'>
+               <a href="PCOS-OverviewPage.html" class='menuitem' target="_blank">PCOS Overview</a>
+               <a href="" class='menuitem'>Project Aim</a>
+               <a href="" class='menuitem'>Predicting Model</a>
+               <a href="" class='menuitem'>Team Members</a>
+           </div>
+       </div>
+       <!--Ending of Header -->
+       
+ <!-- Login Form -->
+ <div class="login">
+  <h1>Login</h1>
+    <form method="post">
+      <input id="username" type="text" name="u" placeholder="Username" required="required" />
+        <input id="password" type="password" name="p" placeholder="Password" required="required" />
+        <button  id="myButton"  type="submit"  onclick="check_info()" class="btn btn-primary btn-block btn-large" >Login</button>
+        <!--SCRIPT-->
+        <script type="text/javascript">
+            function check_info() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                if ( username == "RHU" && password == "123"){
+                    var w= window.open();
+                    w.location.replace("prediction-form");
+                }
+                else
+                    alert ("Invalid credentials");
+                }
+        </script>
+    </form>
+</div>
+
+    </body>
+</html>
+
+

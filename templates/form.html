@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Predicting Model - PCOS</title>
+    <link rel="stylesheet" href="/form.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<body>
+    <!-- We start with the header -->
+    <div id='header'>
+        <div id='logo'>
+            <img id='logopic' src="logo-1.png">
+        </div>
+        <div id='menubar'>
+            <a href="PCOS-OverviewPage.html" class='menuitem' target="_blank">PCOS Overview</a>
+            <a href="" class='menuitem'>Project Aim</a>
+            <a href="PredictingModel.html" class='menuitem'>Predicting Model</a>
+            <a href="" class='menuitem'>Team Members</a>
+        </div>
+    </div>
+    <!--Ending of Header -->
+
+
+
+    <!--SECTION-->
+    <div id="hero-f">
+        <p id="zero">Predicting Model</p>
+        <p id="check">Check your patient's PCOS status</p>
+    </div>
+
+    <div class="container">
+        <h2>Please fill the below form by referring to your patient's information</h2>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="height">Height:</label>
+                <div class="col-sm-10">
+                    <input type="number" step="any" class="form-control" id="height" placeholder="Enter height"
+                        name="height">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="width">Pulse Rate:</label>
+                <div class="col-sm-10">
+                    <input type="number" step="any" class="form-control" id="pulseRate" placeholder="Enter pulse rate"
+                        name="pulseRate">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-default" onclick="submitData()">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        async function submitData() {
+            var height = document.getElementById('height').value
+            var pulseRate = document.getElementById('pulseRate').value
+            var toSendToAPI = {
+                "Height": GetZPercent(height),
+                "Pulse_Rate": GetZPercent(pulseRate),
+            }
+            console.log(toSendToAPI)
+            debugger
+            // sendPostRequest(toSendToAPI)
+        }
+
+        const sendPostRequest = async (toSendToAPI) => {
+            debugger
+            try {
+                const BASE_URL = 'http://127.0.0.1:5000/api/ai/predict-result';
+                var response = await axios.post(`${BASE_URL}`, toSendToAPI, {
+                    headers: { "Access-Control-Allow-Origin": "*" }
+                });
+                alert(response.data)
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        function GetZPercent(z) {
+            // z == number of standard deviations from the mean
+
+            // if z is greater than 6.5 standard deviations from the mean the
+            // number of significant digits will be outside of a reasonable range
+
+            if (z < -6.5) {
+                return 0.0;
+            }
+
+            if (z > 6.5) {
+                return 1.0;
+            }
+
+            var factK = 1;
+            var sum = 0;
+            var term = 1;
+            var k = 0;
+            var loopStop = Math.exp(-23);
+
+            while (Math.abs(term) > loopStop) {
+                term = .3989422804 * Math.pow(-1, k) * Math.pow(z, k) / (2 * k + 1) / Math.pow(2, k) * Math.pow(z, k + 1) / factK;
+                sum += term;
+                k++;
+                factK *= k;
+            }
+
+            sum += 0.5;
+
+            return sum;
+        }
+    </script>
+
+</body>
+
+</html>

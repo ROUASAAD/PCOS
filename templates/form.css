@@ -1,0 +1,185 @@
+@font-face {
+  font-family: "myFont";
+  src: url("Quicksand-Bold.otf");
+}
+@font-face {
+  font-family: "heroFont";
+  src: url("Gidole-Regular.otf");
+}
+
+@font-face {
+  font-family: "cal";
+  src: url("LobsterTwo-Regular.otf");
+}
+
+
+body{
+                margin: 0;
+                padding: 0;
+    background-image: linear-gradient(to bottom right, #D7E1EC, #FFFFFF);
+}
+#header{
+    float:left;
+    height: 80px;
+    width: 100%;
+    background: none;
+    margin-top: 0px;
+    padding-top: 0px;
+    border-bottom:  3px solid white;
+}
+
+#logo{
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin-top: 15px;
+    margin-left: 10px;
+    position: relative;
+    right:-300px;
+}
+#logopic{
+    float:left;
+    height:60px;
+    width:70px;
+}
+
+#menubar{
+    float: right;
+    margin-right: 180px;
+    margin-top: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 50%;
+}
+
+.menuitem{
+    font-family: "myFont" ;
+    font-weight: bold;
+    font-size: 90%;
+    padding-right: 40px;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/**SECTION CSS**/
+@keyframes liftup{
+    0% {
+    transform: translateY(200px);
+    opacity: 0;
+}
+50% {
+    transform: translateY(0px);
+    opacity: .5;
+}
+100% {
+    transform: translateY(0px);
+    opacity: 1;
+}
+}
+#hero-f{
+    height:500px;
+    width: 100%;
+    background-image: url(AIpicture3.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: cover;
+    animation: liftup 1s 1;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: liftup;
+    border-bottom: 3px solid #98AFC7;
+}
+
+#zero{
+    font-family: "heroFont";
+    font-size: 170px;
+    font-style: bold;
+    color: darkgrey;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    bottom: -50px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#check{
+    font-family: "cal";
+    width: 600px;
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    text-align: center;
+    color: white;
+    position: relative;
+    right: -450px;
+    bottom: -100px;
+    border: 2px solid #e27945;
+    background-color: #e27945;
+    border-radius: 50px;
+}
+
+h1{
+    font-family: "heroFont";
+margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    border-bottom: 2px solid #98AFC7;
+    background-color: #98AFC7;
+    text-align: center;
+    color: white;
+}
+
+
+#formdiv{
+    width: 700px;
+     background-image: linear-gradient(to bottom right, #28313B, #485461);
+    border-radius: 50px;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    right: -320px;
+}
+
+.formp{
+    font-family: "heroFont";
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+table{
+    align-content: center;
+    padding-left: 130px;
+    
+}
+
+.formtype{
+    width: 150px;
+    height: 30px;
+    border-radius: 70px;
+}
+
+label{
+    font-family: "heroFont";
+    color: white;
+}
+
+.buttons{
+    width: 100px;
+    height: 30px;
+    font-family: "heroFont";
+    border-radius: 50px;
+    border: 2px solid #e27945;
+    background-color: #e27945;
+    color: white;
+}
